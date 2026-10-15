@@ -1,15 +1,14 @@
 <script setup>
-import {onMounted} from 'vue'
-import Tagify from '@yaireo/tagify'
+import { onMounted } from 'vue';
+import Tagify from '@yaireo/tagify';
 const props = defineProps({
-    id:String,
-})
+    id: String,
+});
 
-onMounted(()=>{
+onMounted(() => {
     let elm = document.getElementById(props.id);
-    let tagify = new Tagify (elm);
-})
-
+    let tagify = new Tagify(elm);
+});
 </script>
 <template>
     <input type="text" :id="id" class="tagify" />
