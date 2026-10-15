@@ -1,11 +1,10 @@
 import Chart from 'chart.js/auto';
-import {isRTL,hexRGB} from "../function";
+import { isRTL, hexRGB } from '../function';
 
-
-export default function Line({selector, data, tooltip, scales}){
+export default function Line({ selector, data, tooltip, scales }) {
     let _get_data = data;
     const selectCanvas = document.querySelector(selector);
-    
+
     let tooltipDefault = {
         enabled: true,
         rtl: isRTL(),
@@ -17,21 +16,21 @@ export default function Line({selector, data, tooltip, scales}){
         backgroundColor: '#eff6ff',
         borderColor: '#eff6ff',
         borderWidth: 2,
-        titleFont:{
+        titleFont: {
             size: 13,
         },
         titleColor: '#6783b8',
         titleMarginBottom: 6,
         bodyColor: '#9eaecf',
-        bodyFont:{
-            size: 12
+        bodyFont: {
+            size: 12,
         },
         bodySpacing: 4,
         padding: 10,
         footerMarginTop: 0,
-        displayColors: false
-    }
-    
+        displayColors: false,
+    };
+
     let tooltipDark = {
         enabled: true,
         rtl: isRTL(),
@@ -41,26 +40,26 @@ export default function Line({selector, data, tooltip, scales}){
             },
         },
         backgroundColor: '#1c2b46',
-        titleFont:{
+        titleFont: {
             size: 13,
         },
         titleColor: '#fff',
         titleMarginBottom: 6,
         bodyColor: '#fff',
-        bodyFont:{
-            size: 12
+        bodyFont: {
+            size: 12,
         },
-        bodySpacing:4,
+        bodySpacing: 4,
         padding: 10,
         footerMarginTop: 0,
-        displayColors: false
-    }
+        displayColors: false,
+    };
 
     let tooltipSmall = {
         enabled: true,
         rtl: isRTL(),
         callbacks: {
-            title: function() {
+            title: function () {
                 return false;
             },
             label: function (context) {
@@ -68,26 +67,26 @@ export default function Line({selector, data, tooltip, scales}){
             },
         },
         backgroundColor: '#eff6ff',
-        titleFont:{
+        titleFont: {
             size: 11,
         },
         titleColor: '#6783b8',
         titleMarginBottom: 6,
         bodyColor: '#9eaecf',
-        bodyFont:{
-            size:9,
+        bodyFont: {
+            size: 9,
         },
         bodySpacing: 4,
-        padding:6,
+        padding: 6,
         footerMarginTop: 0,
-        displayColors: false
-    }
+        displayColors: false,
+    };
 
     let tooltipSmallDark = {
         enabled: true,
         rtl: isRTL(),
         callbacks: {
-            title: function() {
+            title: function () {
                 return false;
             },
             label: function (context) {
@@ -95,47 +94,47 @@ export default function Line({selector, data, tooltip, scales}){
             },
         },
         backgroundColor: '#1c2b46',
-        titleFont:{
+        titleFont: {
             size: 13,
         },
         titleColor: '#fff',
         titleMarginBottom: 4,
         bodyColor: '#fff',
-        bodyFont:{
-            size: 8
+        bodyFont: {
+            size: 8,
         },
-        bodySpacing:4,
+        bodySpacing: 4,
         padding: 6,
         footerMarginTop: 0,
-        displayColors: false
-    }
+        displayColors: false,
+    };
 
     const tooltipStyle = tooltip ? eval(tooltip) : tooltipDefault;
 
     let scalesDefault = {
         y: {
             display: true,
-            position: isRTL() ? "right" : "left",
+            position: isRTL() ? 'right' : 'left',
             ticks: {
                 beginAtZero: true,
-                font:{
-                    size:12,
+                font: {
+                    size: 12,
                 },
                 color: '#9eaecf',
                 padding: 15,
             },
             grid: {
-                color: hexRGB("#526484", .2),
+                color: hexRGB('#526484', 0.2),
                 tickLength: 0,
-                zeroLineColor: hexRGB("#526484", .2),
-                drawTicks:false,
+                zeroLineColor: hexRGB('#526484', 0.2),
+                drawTicks: false,
             },
         },
         x: {
             display: true,
             ticks: {
-                font:{
-                    size:12,
+                font: {
+                    size: 12,
                 },
                 color: '#9eaecf',
                 source: 'auto',
@@ -143,14 +142,14 @@ export default function Line({selector, data, tooltip, scales}){
             },
             reverse: isRTL(),
             grid: {
-                color: "transparent",
+                color: 'transparent',
                 tickLength: 10,
-                zeroLineColor: hexRGB("#526484",.2),
+                zeroLineColor: hexRGB('#526484', 0.2),
                 offset: false,
-                drawTicks:false,
-            }
-        }
-    }
+                drawTicks: false,
+            },
+        },
+    };
 
     let noScale = {
         y: {
@@ -158,127 +157,126 @@ export default function Line({selector, data, tooltip, scales}){
         },
         x: {
             display: false,
-        }
-    }
+        },
+    };
 
     let scales2 = {
         y: {
             display: true,
-            stacked: (_get_data.stacked) ? _get_data.stacked : false,
-            position : isRTL() ? "right" : "left",
+            stacked: _get_data.stacked ? _get_data.stacked : false,
+            position: isRTL() ? 'right' : 'left',
             ticks: {
-                beginAtZero:true,
-                font:{
-                    size:11,
+                beginAtZero: true,
+                font: {
+                    size: 11,
                 },
-                color:'#9eaecf',
-                padding:10,
-                callback: function(value, index, values) {
+                color: '#9eaecf',
+                padding: 10,
+                callback: function (value, index, values) {
                     return '$ ' + value;
                 },
-                min:0,
-                stepSize:3000
+                min: 0,
+                stepSize: 3000,
             },
-            grid: { 
-                color: hexRGB("#526484",.2),
-                tickLength:0,
-                zeroLineColor: hexRGB("#526484",.2),
-                drawTicks:false,
+            grid: {
+                color: hexRGB('#526484', 0.2),
+                tickLength: 0,
+                zeroLineColor: hexRGB('#526484', 0.2),
+                drawTicks: false,
             },
         },
         x: {
             display: false,
-            stacked: (_get_data.stacked) ? _get_data.stacked : false,
+            stacked: _get_data.stacked ? _get_data.stacked : false,
             ticks: {
-                font:{
-                    size:9,
+                font: {
+                    size: 9,
                 },
-                color:'#9eaecf',
+                color: '#9eaecf',
                 source: 'auto',
-                padding:10,
+                padding: 10,
             },
             reverse: isRTL(),
             grid: {
-                color: "transparent",
+                color: 'transparent',
                 tickLength: 0,
                 zeroLineColor: 'transparent',
-                drawTicks:false,
+                drawTicks: false,
             },
-        }
-    }
+        },
+    };
 
     let scales3 = {
         y: {
             display: true,
-            stacked: (_get_data.stacked) ? _get_data.stacked : false,
-            position : isRTL() ? "right" : "left",
+            stacked: _get_data.stacked ? _get_data.stacked : false,
+            position: isRTL() ? 'right' : 'left',
             ticks: {
-                beginAtZero:true,
-                font:{
-                    size:11,
+                beginAtZero: true,
+                font: {
+                    size: 11,
                 },
-                color:'#9eaecf',
-                padding:10,
-                callback: function(value, index, values) {
+                color: '#9eaecf',
+                padding: 10,
+                callback: function (value, index, values) {
                     return '$ ' + value;
                 },
-                min:100,
-                stepSize:3000
+                min: 100,
+                stepSize: 3000,
             },
-            grid: { 
-                color: hexRGB("#526484",.2),
-                tickLength:0,
-                zeroLineColor: hexRGB("#526484",.2),
-                drawTicks:false,
+            grid: {
+                color: hexRGB('#526484', 0.2),
+                tickLength: 0,
+                zeroLineColor: hexRGB('#526484', 0.2),
+                drawTicks: false,
             },
-            
         },
         x: {
             display: true,
-            stacked: (_get_data.stacked) ? _get_data.stacked : false,
+            stacked: _get_data.stacked ? _get_data.stacked : false,
             ticks: {
-                font:{
-                    size:9,
+                font: {
+                    size: 9,
                 },
-                color:'#9eaecf',
+                color: '#9eaecf',
                 source: 'auto',
                 padding: 10,
             },
-            reverse : isRTL(),
+            reverse: isRTL(),
             grid: {
-                color: "transparent",
+                color: 'transparent',
                 tickLength: 0,
                 zeroLineColor: 'transparent',
-                drawTicks:false,
+                drawTicks: false,
             },
-        }
-    }
+        },
+    };
 
     let scales4 = {
         y: {
             display: true,
-            position: isRTL() ? "right" : "left",
+            position: isRTL() ? 'right' : 'left',
             ticks: {
                 beginAtZero: true,
-                font:{
-                    size:12,
+                font: {
+                    size: 12,
                 },
                 color: '#9eaecf',
                 padding: 8,
-                stepSize: 2400
+                stepSize: 2400,
             },
             grid: {
-                color: hexRGB("#526484", .2),
+                color: hexRGB('#526484', 0.2),
                 tickLength: 0,
-                zeroLineColor: hexRGB("#526484", .2),
-                drawTicks:false,
+                zeroLineColor: hexRGB('#526484', 0.2),
+                drawTicks: false,
             },
         },
         x: {
             display: false,
             ticks: {
-                font:{
-                    size:12,
+                font: {
+                    size: 12,
                 },
                 color: '#9eaecf',
                 source: 'auto',
@@ -286,14 +284,14 @@ export default function Line({selector, data, tooltip, scales}){
             },
             reverse: isRTL(),
             grid: {
-                color: "transparent",
+                color: 'transparent',
                 tickLength: 0,
                 zeroLineColor: 'transparent',
                 offset: true,
-                drawTicks:false,
-            }
-        }
-    }
+                drawTicks: false,
+            },
+        },
+    };
     let scalesStyle = scales ? eval(scales) : scalesDefault;
 
     const chart_data = [];
@@ -306,9 +304,13 @@ export default function Line({selector, data, tooltip, scales}){
             borderWidth: 2,
             borderDash: _get_data.datasets[i].dash,
             borderColor: _get_data.datasets[i].color,
-            pointBorderColor: _get_data.point === true ? _get_data.datasets[i].color : "transparent",
-            pointBackgroundColor: _get_data.point === true ? '#fff' : "transparent",
-            pointHoverBackgroundColor: "#fff",
+            pointBorderColor:
+                _get_data.point === true
+                    ? _get_data.datasets[i].color
+                    : 'transparent',
+            pointBackgroundColor:
+                _get_data.point === true ? '#fff' : 'transparent',
+            pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: _get_data.datasets[i].color,
             pointBorderWidth: 2,
             pointHoverRadius: 4,
@@ -317,27 +319,29 @@ export default function Line({selector, data, tooltip, scales}){
             pointHitRadius: 4,
             data: _get_data.datasets[i].data,
         });
-    } 
-    const chart = selectCanvas && new Chart(selectCanvas.getContext("2d"), {
-        type: 'line',
-        data: {
-            labels: _get_data.labels,
-            datasets: chart_data,
-        },
-        options: {
-            plugins: {
-                legend: {
-                    display: (_get_data.legend) ? _get_data.legend : false,
-                    labels: {
-                        boxWidth: 12,
-                        padding: 20,
-                        color: '#6783b8',
-                    }
-                },
-                tooltip: tooltipStyle,
+    }
+    const chart =
+        selectCanvas &&
+        new Chart(selectCanvas.getContext('2d'), {
+            type: 'line',
+            data: {
+                labels: _get_data.labels,
+                datasets: chart_data,
             },
-            maintainAspectRatio: false,
-            scales: scalesStyle
-        }
-    });
+            options: {
+                plugins: {
+                    legend: {
+                        display: _get_data.legend ? _get_data.legend : false,
+                        labels: {
+                            boxWidth: 12,
+                            padding: 20,
+                            color: '#6783b8',
+                        },
+                    },
+                    tooltip: tooltipStyle,
+                },
+                maintainAspectRatio: false,
+                scales: scalesStyle,
+            },
+        });
 }
