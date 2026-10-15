@@ -1,10 +1,10 @@
-import slideUp from './slideUp'
-import slideDown from './slideDown'
+import slideUp from './slideUp';
+import slideDown from './slideDown';
 
-export default function slideToggle(target, duration=500) {
+export default function slideToggle(target, duration = 500) {
     if (window.getComputedStyle(target).display === 'none') {
         return slideUp(target, duration);
-      } else {
+    } else {
         return slideDown(target, duration);
     }
-};
+}
