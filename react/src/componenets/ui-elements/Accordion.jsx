@@ -1,11 +1,11 @@
-import React from "react";
-import classNames from "classnames";
+import React from 'react';
+import classNames from 'classnames';
 import {
     useAccordion,
     useAccordionProvider,
     AccordionProvider,
     AccordionItem as Item,
-} from "@szhsin/react-accordion";
+} from '@szhsin/react-accordion';
 
 function Accordion({ className, children }) {
     const providerValue = useAccordionProvider({
@@ -16,7 +16,7 @@ function Accordion({ className, children }) {
     const { accordionProps } = useAccordion();
 
     const compClass = classNames({
-      "accordion rounded border border-gray-200 dark:border-gray-800":true,
+        'accordion rounded border border-gray-200 dark:border-gray-800': true,
         [`${className}`]: className,
     });
     return (
@@ -39,19 +39,19 @@ function AccordionItem({
     ...rest
 }) {
     const btnClass = classNames({
-        "accordion-toggle relative block text-start ps-6 pe-12 py-4 border-gray-200 dark:border-gray-800 w-full": true,
+        'accordion-toggle relative block text-start ps-6 pe-12 py-4 border-gray-200 dark:border-gray-800 w-full': true,
         [`${buttonClass}`]: buttonClass,
     });
     const btnActiveClass = classNames({
-      "border-b":true,
+        'border-b': true,
         [`${buttonActiveClass}`]: buttonActiveClass,
     });
     const pnlClass = classNames({
-        "accordion-body px-6 pt-4 pb-5": true,
+        'accordion-body px-6 pt-4 pb-5': true,
         [`${panelClass}`]: panelClass,
     });
     const mainClass = classNames({
-      "accordion-item border-t border-gray-300 dark:border-gray-900 first:border-t-0 group":true,
+        'accordion-item border-t border-gray-300 dark:border-gray-900 first:border-t-0 group': true,
         [`${className}`]: className,
     });
     return (
@@ -59,8 +59,14 @@ function AccordionItem({
             {...rest}
             header={({ state: { isEnter } }) => (
                 <>
-                    <h6 className={`text-base font-bold ${isEnter ? 'text-slate-700 dark:text-white' : 'text-slate-600 dark:text-slate-300'}`}>{header}</h6>
-                    <em className={`absolute end-6 top-1/2 -translate-y-1/2 text-base text-center text-slate-700 dark:text-white font-bold leading-5 h-5 w-5 transition-all duration-300 ni ni-chevron-down ${isEnter ? 'rotate-180' : ''}`}></em>
+                    <h6
+                        className={`text-base font-bold ${isEnter ? 'text-slate-700 dark:text-white' : 'text-slate-600 dark:text-slate-300'}`}
+                    >
+                        {header}
+                    </h6>
+                    <em
+                        className={`ni ni-chevron-down absolute end-6 top-1/2 h-5 w-5 -translate-y-1/2 text-center text-base leading-5 font-bold text-slate-700 transition-all duration-300 dark:text-white ${isEnter ? 'rotate-180' : ''}`}
+                    ></em>
                 </>
             )}
             className={mainClass}
@@ -69,7 +75,7 @@ function AccordionItem({
                     `${btnClass} ${isEnter && btnActiveClass}`,
             }}
             contentProps={{
-                className: "transition-height duration-200 ease-in-out",
+                className: 'transition-height duration-200 ease-in-out',
             }}
             panelProps={{ className: pnlClass }}
         />
