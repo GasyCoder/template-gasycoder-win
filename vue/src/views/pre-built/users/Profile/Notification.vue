@@ -1,24 +1,55 @@
 <script setup>
-import { ref } from 'vue'
-import { Card, Button, ButtonZoom, FormGroup, FormLabel, Icon, Input, InputWrap, Select, SelectOption, Switch, DatePicker } from '@/components'
+import { ref } from 'vue';
+import {
+    Card,
+    Button,
+    ButtonZoom,
+    FormGroup,
+    FormLabel,
+    Icon,
+    Input,
+    InputWrap,
+    Select,
+    SelectOption,
+    Switch,
+    DatePicker,
+} from '@/components';
 
-const pageAside = defineModel('pageAside')
+const pageAside = defineModel('pageAside');
 </script>
 <template>
-    <div class="flex justify-between items-center  pb-6 sm:pb-10 gap-x-6">
+    <div class="flex items-center justify-between gap-x-6 pb-6 sm:pb-10">
         <div class="relative">
-            <h5 class="text-2xl font-heading mb-2 font-bold leading-tighter tracking-tight text-slate-700 dark:text-white">Notification Settings</h5>
-            <p class="text-slate-600 dark:text-slate-400">You will get only notification what have enabled.</p>
+            <h5
+                class="font-heading leading-tighter mb-2 text-2xl font-bold tracking-tight text-slate-700 dark:text-white"
+            >
+                Notification Settings
+            </h5>
+            <p class="text-slate-600 dark:text-slate-400">
+                You will get only notification what have enabled.
+            </p>
         </div>
         <div class="lg:hidden">
-            <ButtonZoom  @click="()=>{ pageAside = true }">
+            <ButtonZoom
+                @click="
+                    () => {
+                        pageAside = true;
+                    }
+                "
+            >
                 <Icon class="text-xl" name="menu-alt-r" />
             </ButtonZoom>
         </div>
     </div>
     <div class="pb-4">
-        <h6 class="text-base font-heading font-bold leading-tighter -tracking-snug text-slate-700 dark:text-white mb-2">Security Alerts</h6>
-        <p class="text-slate-600 text-sm">You will get only those email notification what you want.</p>
+        <h6
+            class="font-heading leading-tighter -tracking-snug mb-2 text-base font-bold text-slate-700 dark:text-white"
+        >
+            Security Alerts
+        </h6>
+        <p class="text-sm text-slate-600">
+            You will get only those email notification what you want.
+        </p>
     </div>
     <ul class="flex flex-col gap-4">
         <li class="flex">
@@ -32,9 +63,15 @@ const pageAside = defineModel('pageAside')
             </Switch>
         </li>
     </ul>
-    <div class="pb-4 pt-6 sm:pt-10">
-        <h6 class="text-base font-heading font-bold leading-tighter -tracking-snug text-slate-700 dark:text-white mb-2">News</h6>
-        <p class="text-slate-600 text-sm">You will get only those email notification what you want.</p>
+    <div class="pt-6 pb-4 sm:pt-10">
+        <h6
+            class="font-heading leading-tighter -tracking-snug mb-2 text-base font-bold text-slate-700 dark:text-white"
+        >
+            News
+        </h6>
+        <p class="text-sm text-slate-600">
+            You will get only those email notification what you want.
+        </p>
     </div>
     <ul class="flex flex-col gap-4">
         <li class="flex">
