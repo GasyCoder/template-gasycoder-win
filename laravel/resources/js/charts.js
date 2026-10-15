@@ -1,6 +1,6 @@
-import { isRTL, hexRGB } from "./function";
+import { isRTL, hexRGB } from './function';
 
-import { Line, Bar, Pie, Doughnut, Polar } from "./chart"
+import { Line, Bar, Pie, Doughnut, Polar } from './chart';
 
 window.Line = Line;
 window.Bar = Bar;
