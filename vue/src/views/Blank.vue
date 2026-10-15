@@ -1,9 +1,9 @@
 <script setup>
-import Layout from '@/layout/Main.vue'
+import Layout from '@/layout/Main.vue';
 </script>
 
 <template>
-  <Layout title="Blank Page">
-    <p>Starter page for general layout.</p>
-  </Layout>
+    <Layout title="Blank Page">
+        <p>Starter page for general layout.</p>
+    </Layout>
 </template>
