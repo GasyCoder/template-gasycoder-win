@@ -1,50 +1,95 @@
 <script setup>
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { Card, CardBody, Button, Icon } from '@/components'
+import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
+import { Card, CardBody, Button, Icon } from '@/components';
 
-import { Line } from "vue-chartjs";
+import { Line } from 'vue-chartjs';
 
-import { Chart, CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Filler} from "chart.js";
-Chart.register(CategoryScale, LinearScale, LineElement, PointElement, Tooltip, Filler);
+import {
+    Chart,
+    CategoryScale,
+    LinearScale,
+    LineElement,
+    PointElement,
+    Tooltip,
+    Filler,
+} from 'chart.js';
+Chart.register(
+    CategoryScale,
+    LinearScale,
+    LineElement,
+    PointElement,
+    Tooltip,
+    Filler,
+);
 
-import { usePopper } from '@/utilities/usePopper'
-import { useThemeStore } from '@/stores/theme'
-const theme = useThemeStore()
+import { usePopper } from '@/utilities/usePopper';
+import { useThemeStore } from '@/stores/theme';
+const theme = useThemeStore();
 
 let [dropdownToggle, dropdownContent] = usePopper({
-    placement : theme.direction === "rtl" ? "bottom-start" : "bottom-end",
+    placement: theme.direction === 'rtl' ? 'bottom-start' : 'bottom-end',
     modifiers: [
-        {name: 'offset', options: { offset: [0,4]}},
-        {name: 'preventOverflow', options: { padding: 8 }},
+        { name: 'offset', options: { offset: [0, 4] } },
+        { name: 'preventOverflow', options: { padding: 8 } },
     ],
-})
+});
 
 const chartData = {
     labels: [
-      "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+        '01',
+        '02',
+        '03',
+        '04',
+        '05',
+        '06',
+        '07',
+        '08',
+        '09',
+        '10',
+        '11',
+        '12',
+        '13',
+        '14',
+        '15',
+        '16',
+        '17',
+        '18',
+        '19',
+        '20',
+        '21',
+        '22',
+        '23',
+        '24',
+        '25',
+        '26',
+        '27',
+        '28',
+        '29',
+        '30',
     ],
     datasets: [
-      {
-        label: "Sales Overview",
-        color: "#798bff",
-        fill: true,
-        backgroundColor: "rgba(101,118,255,0.25)",
-        borderColor: "#798bff",
-        barPercentage: 0.1,
-        categoryPercentage: 0.1,
-        borderWidth: 2,
-        lineTension: 0.1,
-        pointBorderColor: "transparent",
-        pointBackgroundColor: "transparent",
-        pointHoverBorderColor: "#798bff",
-        pointHoverBackgroundColor: "#fff",
-        data: [
-          8200, 7800, 9500, 5500, 9200, 9690, 8200, 7800, 9500, 5500, 9200, 9690, 8200, 7800, 9500, 5500, 9200, 9690,
-          8200, 7800, 9500, 5500, 9200, 9690, 8200, 7800, 9500, 5500, 9200, 9690,
-        ],
-      },
+        {
+            label: 'Sales Overview',
+            color: '#798bff',
+            fill: true,
+            backgroundColor: 'rgba(101,118,255,0.25)',
+            borderColor: '#798bff',
+            barPercentage: 0.1,
+            categoryPercentage: 0.1,
+            borderWidth: 2,
+            lineTension: 0.1,
+            pointBorderColor: 'transparent',
+            pointBackgroundColor: 'transparent',
+            pointHoverBorderColor: '#798bff',
+            pointHoverBackgroundColor: '#fff',
+            data: [
+                8200, 7800, 9500, 5500, 9200, 9690, 8200, 7800, 9500, 5500,
+                9200, 9690, 8200, 7800, 9500, 5500, 9200, 9690, 8200, 7800,
+                9500, 5500, 9200, 9690, 8200, 7800, 9500, 5500, 9200, 9690,
+            ],
+        },
     ],
-}
+};
 const options = {
     plugins: {
         legend: {
@@ -54,13 +99,13 @@ const options = {
             enabled: true,
             rtl: theme.direction === 'rtl' ? true : false,
             displayColors: false,
-            backgroundColor: "#eff6ff",
+            backgroundColor: '#eff6ff',
             titleFont: {
                 size: '11px',
             },
-            titleColor: "#6783b8",
+            titleColor: '#6783b8',
             titleMarginBottom: 4,
-            bodyColor: "#9eaecf",
+            bodyColor: '#9eaecf',
             bodyFont: {
                 size: '10px',
             },
@@ -76,102 +121,155 @@ const options = {
     },
     maintainAspectRatio: false,
     scales: {
-        y:{
+        y: {
             display: true,
             position: theme.direction === 'rtl' ? 'right' : 'left',
             ticks: {
                 beginAtZero: true,
-                color:"#9eaecf", 
+                color: '#9eaecf',
                 font: {
-                size: '11px',
+                    size: '11px',
                 },
                 callback: function (value, index, values) {
-                return "$ " + value;
+                    return '$ ' + value;
                 },
                 padding: 10,
                 min: 100,
                 stepSize: 3000,
             },
             grid: {
-                color: "rgba(82, 100, 132, .2)",
-                zeroLineColor: "rgba(82, 100, 132, .2)",
+                color: 'rgba(82, 100, 132, .2)',
+                zeroLineColor: 'rgba(82, 100, 132, .2)',
                 tickMarkLength: 0,
-                drawTicks:false,
+                drawTicks: false,
             },
         },
-        x:{
+        x: {
             display: true,
             reverse: theme.direction === 'rtl' ? true : false,
             ticks: {
-                color:"#9eaecf", 
+                color: '#9eaecf',
                 font: {
-                size: '9px',
+                    size: '9px',
                 },
-                source: "auto",
+                source: 'auto',
                 padding: 10,
             },
             grid: {
-                color: "transparent",
+                color: 'transparent',
                 tickMarkLength: 0,
-                zeroLineColor: "transparent",
-                drawTicks:false,
+                zeroLineColor: 'transparent',
+                drawTicks: false,
             },
         },
     },
-}
+};
 </script>
 <template>
     <Card class="h-full">
         <CardBody>
-          <div class="flex justify-between items-start gap-2 mb-4">
-              <div>
-                  <h6 class="font-heading text-base -tracking-snug leading-tighter font-bold text-slate-700 dark:text-white mb-1">Sales Overview</h6>
-                  <p class="text-xs leading-5 text-slate-400">In 30 days sales of product subscription. <a class="text-primary-500 hover:text-primary-600" href="#link" @click="(e)=> e.preventDefault()">See Details</a></p>
-              </div>
-              <Menu as="div" class="inline-flex relative" v-slot="{open}">
-                  <MenuButton as='div'  :class="{'inline-flex':true, 'active' : open}" ref="dropdownToggle">
-                        <Button size="rg" variant="primary-pale" class="hidden sm:inline-flex">
-                            <Icon class="text-xl leading-4.5" name="download-cloud" />
-                            <span class="ms-3"><span class="hidden md:inline">Download</span> Report</span>
+            <div class="mb-4 flex items-start justify-between gap-2">
+                <div>
+                    <h6
+                        class="font-heading -tracking-snug leading-tighter mb-1 text-base font-bold text-slate-700 dark:text-white"
+                    >
+                        Sales Overview
+                    </h6>
+                    <p class="text-xs leading-5 text-slate-400">
+                        In 30 days sales of product subscription.
+                        <a
+                            class="text-primary-500 hover:text-primary-600"
+                            href="#link"
+                            @click="(e) => e.preventDefault()"
+                            >See Details</a
+                        >
+                    </p>
+                </div>
+                <Menu as="div" class="relative inline-flex" v-slot="{ open }">
+                    <MenuButton
+                        as="div"
+                        :class="{ 'inline-flex': true, active: open }"
+                        ref="dropdownToggle"
+                    >
+                        <Button
+                            size="rg"
+                            variant="primary-pale"
+                            class="hidden sm:inline-flex"
+                        >
+                            <Icon
+                                class="text-xl leading-4.5"
+                                name="download-cloud"
+                            />
+                            <span class="ms-3"
+                                ><span class="hidden md:inline">Download</span>
+                                Report</span
+                            >
                         </Button>
-                        <Button size="rg" variant="primary-pale" icon class="sm:hidden">
-                            <Icon class="text-xl leading-4.5" name="download-cloud" />
+                        <Button
+                            size="rg"
+                            variant="primary-pale"
+                            icon
+                            class="sm:hidden"
+                        >
+                            <Icon
+                                class="text-xl leading-4.5"
+                                name="download-cloud"
+                            />
                         </Button>
-                  </MenuButton>
-                  <MenuItems ref="dropdownContent" class="absolute border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 rounded-md shadow z-[1000] min-w-[180px]">
-                      <ul class="py-2">
-                          <li>
-                              <MenuItem as="button" class="w-full relative px-5 py-2.5 flex items-center rounded-[inherit] text-xs leading-5 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 hover:bg-slate-50 hover:dark:bg-gray-900 transition-all duration-300">
-                                  <span>Download Mini Version</span>
-                              </MenuItem>
-                          </li>
-                          <li>
-                              <MenuItem as="button" class="w-full relative px-5 py-2.5 flex items-center rounded-[inherit] text-xs leading-5 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 hover:bg-slate-50 hover:dark:bg-gray-900 transition-all duration-300">
-                                  <span>Download Full Version</span>
-                              </MenuItem>
-                          </li>
-                          <li class="block border-t border-gray-300 dark:border-gray-900 my-2"></li>
-                          <li>
-                              <MenuItem as="button" class="w-full relative px-5 py-2.5 flex items-center rounded-[inherit] text-xs leading-5 font-medium text-slate-600 dark:text-slate-300 hover:text-primary-600 hover:bg-slate-50 hover:dark:bg-gray-900 transition-all duration-300">
-                                  <Icon class="text-lg leading-none w-7 opacity-80" name="opt-alt" />
-                                  <span>More Options</span>
-                              </MenuItem>
-                          </li>
-                      </ul>
-                  </MenuItems>
-              </Menu>
-          </div>
-          <div class="flex flex-wrap items-center justify-between gap-x-5 gap-y-2">
-              <div class="block text-3xl text-slate-700 dark:text-white">
-                  $82,944.60
-              </div>
-              <div class="block text-lg text-slate-400">
-                  1,937 <small>Subscribers</small>
-              </div>
-          </div>
-          <div class="h-[200px] pt-6">
-            <Line :data="chartData" :options="options" />
-          </div>
+                    </MenuButton>
+                    <MenuItems
+                        ref="dropdownContent"
+                        class="absolute z-[1000] min-w-[180px] rounded-md border border-gray-200 bg-white shadow dark:border-gray-800 dark:bg-gray-950"
+                    >
+                        <ul class="py-2">
+                            <li>
+                                <MenuItem
+                                    as="button"
+                                    class="hover:text-primary-600 relative flex w-full items-center rounded-[inherit] px-5 py-2.5 text-xs leading-5 font-medium text-slate-600 transition-all duration-300 hover:bg-slate-50 dark:text-slate-300 hover:dark:bg-gray-900"
+                                >
+                                    <span>Download Mini Version</span>
+                                </MenuItem>
+                            </li>
+                            <li>
+                                <MenuItem
+                                    as="button"
+                                    class="hover:text-primary-600 relative flex w-full items-center rounded-[inherit] px-5 py-2.5 text-xs leading-5 font-medium text-slate-600 transition-all duration-300 hover:bg-slate-50 dark:text-slate-300 hover:dark:bg-gray-900"
+                                >
+                                    <span>Download Full Version</span>
+                                </MenuItem>
+                            </li>
+                            <li
+                                class="my-2 block border-t border-gray-300 dark:border-gray-900"
+                            ></li>
+                            <li>
+                                <MenuItem
+                                    as="button"
+                                    class="hover:text-primary-600 relative flex w-full items-center rounded-[inherit] px-5 py-2.5 text-xs leading-5 font-medium text-slate-600 transition-all duration-300 hover:bg-slate-50 dark:text-slate-300 hover:dark:bg-gray-900"
+                                >
+                                    <Icon
+                                        class="w-7 text-lg leading-none opacity-80"
+                                        name="opt-alt"
+                                    />
+                                    <span>More Options</span>
+                                </MenuItem>
+                            </li>
+                        </ul>
+                    </MenuItems>
+                </Menu>
+            </div>
+            <div
+                class="flex flex-wrap items-center justify-between gap-x-5 gap-y-2"
+            >
+                <div class="block text-3xl text-slate-700 dark:text-white">
+                    $82,944.60
+                </div>
+                <div class="block text-lg text-slate-400">
+                    1,937 <small>Subscribers</small>
+                </div>
+            </div>
+            <div class="h-[200px] pt-6">
+                <Line :data="chartData" :options="options" />
+            </div>
         </CardBody>
     </Card>
 </template>
