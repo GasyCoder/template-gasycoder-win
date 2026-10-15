@@ -4,7 +4,7 @@ namespace App\SampleData;
 
 class UserDetails
 {
-    static function details (): array 
+    public static function details(): array
     {
         $data = [
             'id' => 'U1901',
@@ -54,4 +54,3 @@ class UserDetails
         return $data;
     }
 }
-
