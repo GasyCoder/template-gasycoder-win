@@ -6,5 +6,5 @@ export default function yesterday() {
     let y_mm = String(yesterday.getMonth() + 1).padStart(2, '0');
     let y_yyyy = yesterday.getFullYear();
 
-    return  y_yyyy + '-' + y_mm + '-' + y_dd;
+    return y_yyyy + '-' + y_mm + '-' + y_dd;
 }
