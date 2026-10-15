@@ -1,11 +1,11 @@
-.form-wrap{
+.form-wrap {
     position: relative;
 }
-.form-error{
+.form-error {
     font-size: 11px;
     line-height: 1.8;
     font-style: italic;
-    margin-top: .25rem;
+    margin-top: 0.25rem;
     @apply text-red-600;
 }
 
@@ -18,22 +18,22 @@
     z-index: 1;
     border-radius: 3px;
     white-space: nowrap;
-    @apply bg-red-500 text-white end-0;
+    @apply end-0 bg-red-500 text-white;
 }
 .floating-feedbacks .form-error:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 0;
     width: 0;
     bottom: -5px;
-    @apply border-s-6 border-e-6 border-b-6 border-e-red-500 border-s-transparent border-b-transparent end-2.5;
+    @apply end-2.5 border-s-6 border-e-6 border-b-6 border-s-transparent border-e-red-500 border-b-transparent;
 }
 
-.floating-feedbacks .form-check-wrap .form-error{
-    @apply end-auto start-0;
+.floating-feedbacks .form-check-wrap .form-error {
+    @apply start-0 end-auto;
 }
 
-.floating-feedbacks .form-check-wrap .form-error:before{
+.floating-feedbacks .form-check-wrap .form-error:before {
     bottom: -6px;
-    @apply border-s-red-500 border-e-transparent end-auto start-2.5;
+    @apply start-2.5 end-auto border-s-red-500 border-e-transparent;
 }
