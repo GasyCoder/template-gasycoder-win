@@ -3,22 +3,29 @@
 namespace App\Http\Controllers\Project;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class ProjectController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function projectCard()
     {
         return view('pages.pre-built.project.card');
     }
+
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function projectList()
@@ -26,4 +33,3 @@ class ProjectController extends Controller
         return view('pages.pre-built.project.list');
     }
 }
-
