@@ -1,11 +1,11 @@
 <script setup>
 defineProps({
-    close:String
-})
+    close: String,
+});
 </script>
 
 <template>
-    <div class="accordion" :class="{'manual-close' : close === 'manual'}">
+    <div class="accordion" :class="{ 'manual-close': close === 'manual' }">
         <slot></slot>
     </div>
 </template>
