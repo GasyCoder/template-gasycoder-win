@@ -4,7 +4,7 @@ namespace App\SampleData;
 
 class UserProfile
 {
-    static function profile (): array 
+    public static function profile(): array
     {
         $data = [
             'id' => 'U1901',
@@ -16,7 +16,7 @@ class UserProfile
             'email' => 'info@softnio.com',
             'balance' => [
                 'btc' => '12.395769',
-                'locked' => '0.344939'
+                'locked' => '0.344939',
             ],
             'phone' => '+818 474-958',
             'lastLogin' => '10 Feb 2020',
@@ -31,4 +31,3 @@ class UserProfile
         return $data;
     }
 }
-
