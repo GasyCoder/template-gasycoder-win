@@ -3,13 +3,17 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\View\View;
 
 class AuthController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function login()
@@ -18,8 +22,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function logout()
@@ -28,8 +34,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function register()
@@ -38,8 +46,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function reset()
@@ -48,8 +58,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function success()
@@ -58,8 +70,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function loginv2()
@@ -68,8 +82,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function registerv2()
@@ -78,8 +94,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function resetv2()
@@ -88,8 +106,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function successv2()
@@ -98,8 +118,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function loginv3()
@@ -108,8 +130,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function registerv3()
@@ -118,8 +142,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function resetv3()
@@ -128,8 +154,10 @@ class AuthController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Application|Factory|View
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function successv3()
@@ -137,4 +165,3 @@ class AuthController extends Controller
         return view('pages.auth.success-v3');
     }
 }
-
