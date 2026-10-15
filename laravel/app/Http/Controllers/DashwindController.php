@@ -2,16 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 
 class DashwindController extends Controller
 {
     /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
+     *
      * @throws ValidationException
+     *
      * @version 1.0.0
+     *
      * @since 1.0
      */
     public function darkmode(Request $request)
@@ -24,4 +27,3 @@ class DashwindController extends Controller
         return ($request->ajax()) ? response()->json(['status' => 'success']) : back();
     }
 }
-
