@@ -1,15 +1,15 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-const FullScreenLayout = ({...props}) => {
-  return (
-    <>
-      <div className="nk-main">
-          <div className="nk-wrap flex flex-col min-h-screen">
-            <Outlet />
-          </div>
-      </div>
-    </>
-  );
+const FullScreenLayout = ({ ...props }) => {
+    return (
+        <>
+            <div className="nk-main">
+                <div className="nk-wrap flex min-h-screen flex-col">
+                    <Outlet />
+                </div>
+            </div>
+        </>
+    );
 };
 export default FullScreenLayout;
