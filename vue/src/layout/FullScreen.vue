@@ -1,18 +1,19 @@
 <script setup>
-import {ref} from "vue"
-import { useTitle } from '@vueuse/core'
+import { ref } from 'vue';
+import { useTitle } from '@vueuse/core';
 
 const props = defineProps({
-  title: String
-})
+    title: String,
+});
 
-useTitle(`${props.title ? props.title + ' - ' : ''} Multipurpose Tailwind CSS Admin Dashboard Template`)
-
+useTitle(
+    `${props.title ? props.title + ' - ' : ''} Multipurpose Tailwind CSS Admin Dashboard Template`,
+);
 </script>
 <template>
     <div class="nk-main">
-        <div class="nk-wrap flex flex-col min-h-screen">
-          <slot></slot>
+        <div class="nk-wrap flex min-h-screen flex-col">
+            <slot></slot>
         </div>
     </div>
 </template>
