@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import Input from "../forms/Input";
-import Select from "../forms/Select";
-import Pagination from "./Pagination";
+import React, { useState } from 'react';
+import Input from '../forms/Input';
+import Select from '../forms/Select';
+import Pagination from './Pagination';
 
 import {
     flexRender,
@@ -9,11 +9,11 @@ import {
     getFilteredRowModel,
     useReactTable,
     getPaginationRowModel,
-} from "@tanstack/react-table";
+} from '@tanstack/react-table';
 
 function DataTable({ columns, tableData }) {
     const [data, setData] = useState(() => [...tableData]);
-    const [globalFilter, setGlobalFilter] = useState("");
+    const [globalFilter, setGlobalFilter] = useState('');
 
     // Update the state when input changes
     const handleFilterChange = (e) => {
@@ -47,8 +47,8 @@ function DataTable({ columns, tableData }) {
 
     return (
         <>
-            <div className="pb-4 flex gap-3 items-center justify-between">
-                <div className="w-full xs:w-64">
+            <div className="flex items-center justify-between gap-3 pb-4">
+                <div className="xs:w-64 w-full">
                     <Input
                         value={globalFilter}
                         onChange={handleFilterChange}
@@ -56,7 +56,7 @@ function DataTable({ columns, tableData }) {
                     />
                 </div>
                 <div className="flex items-center gap-x-3">
-                    <div className="text-slate-500 dark:text-slate-300 text-sm hidden xs:block">
+                    <div className="xs:block hidden text-sm text-slate-500 dark:text-slate-300">
                         Show
                     </div>
                     <div className="w-20">
@@ -66,33 +66,35 @@ function DataTable({ columns, tableData }) {
                                 table.setPageSize(Number(e.target.value));
                                 setSelected(e.target.value);
                             }}
-                            >
-                                {pageSizeSelect.map((item,index)=> {
-                                    return(
-                                        <option key={index} value={item.name}>{item.name}</option>
-                                    )
-                                })}
+                        >
+                            {pageSizeSelect.map((item, index) => {
+                                return (
+                                    <option key={index} value={item.name}>
+                                        {item.name}
+                                    </option>
+                                );
+                            })}
                         </Select>
                     </div>
                 </div>
             </div>
-            <div className="rounded border border-gray-200 dark:border-gray-800 overflow-x-auto">
-                <table className="table-auto w-full text-sm border-collapse">
+            <div className="overflow-x-auto rounded border border-gray-200 dark:border-gray-800">
+                <table className="w-full table-auto border-collapse text-sm">
                     <thead className="text-slate-600 dark:text-slate-200">
                         {table.getHeaderGroups().map((headerGroup) => (
                             <tr key={headerGroup.id}>
                                 {headerGroup.headers.map((header) => (
                                     <th
-                                        className="text-start ps-5 pe-5 py-1"
+                                        className="py-1 ps-5 pe-5 text-start"
                                         key={header.id}
                                     >
                                         {header.isPlaceholder
                                             ? null
                                             : flexRender(
-                                                    header.column.columnDef
-                                                        .header,
-                                                    header.getContext()
-                                                )}
+                                                  header.column.columnDef
+                                                      .header,
+                                                  header.getContext(),
+                                              )}
                                     </th>
                                 ))}
                             </tr>
@@ -103,12 +105,12 @@ function DataTable({ columns, tableData }) {
                             <tr key={row.id}>
                                 {row.getVisibleCells().map((cell) => (
                                     <td
-                                        className="ps-5 pe-5 py-2.5 border-t border-gray-200 dark:border-gray-800"
+                                        className="border-t border-gray-200 py-2.5 ps-5 pe-5 dark:border-gray-800"
                                         key={cell.id}
                                     >
                                         {flexRender(
                                             cell.column.columnDef.cell,
-                                            cell.getContext()
+                                            cell.getContext(),
                                         )}
                                     </td>
                                 ))}
@@ -118,14 +120,21 @@ function DataTable({ columns, tableData }) {
                 </table>
             </div>
             <div
-                className={`pt-4 flex sm:items-center justify-between flex-col sm:flex-row gap-4`}
+                className={`flex flex-col justify-between gap-4 pt-4 sm:flex-row sm:items-center`}
             >
                 <Pagination table={table} />
                 <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-300">
-                    {table.getState().pagination.pageSize * (table.getState().pagination.pageIndex + 1 - 1) + 1}
-                    {" "}-{" "} 
-                    {table.getFilteredRowModel().rows.length > table.getState().pagination.pageSize * (table.getState().pagination.pageIndex + 1) ? table.getState().pagination.pageSize * (table.getState().pagination.pageIndex + 1) : table.getFilteredRowModel().rows.length}{" "}
-                    of{" "}{table.getFilteredRowModel().rows.length} 
+                    {table.getState().pagination.pageSize *
+                        (table.getState().pagination.pageIndex + 1 - 1) +
+                        1}{' '}
+                    -{' '}
+                    {table.getFilteredRowModel().rows.length >
+                    table.getState().pagination.pageSize *
+                        (table.getState().pagination.pageIndex + 1)
+                        ? table.getState().pagination.pageSize *
+                          (table.getState().pagination.pageIndex + 1)
+                        : table.getFilteredRowModel().rows.length}{' '}
+                    of {table.getFilteredRowModel().rows.length}
                 </span>
             </div>
         </>
