@@ -1,6 +1,17 @@
 <script setup>
-import Layout from '@/layout/Main.vue'
-import { Card, CardBody, Block, BlockHead, BlockTitle, BlockTitleLg, BlockText, BlockBack, BlockPageHead, BlockLeadText } from "@/components";
+import Layout from '@/layout/Main.vue';
+import {
+    Card,
+    CardBody,
+    Block,
+    BlockHead,
+    BlockTitle,
+    BlockTitleLg,
+    BlockText,
+    BlockBack,
+    BlockPageHead,
+    BlockLeadText,
+} from '@/components';
 
 import ActiveUsersCard from '../../dashboard/Analytics/partials/ActiveUsersCard.vue';
 import OrdersOverviewCard from '../../dashboard/Crypto/partials/OrdersOverviewCard.vue';
@@ -13,7 +24,7 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
 </script>
 <template>
     <Layout title="Chart Widgets">
-        <div class="lg:max-w-[960px] mx-auto">
+        <div class="mx-auto lg:max-w-[960px]">
             <BlockPageHead class="md:max-w-[720px]">
                 <BlockBack to="/components">Components</BlockBack>
                 <BlockTitleLg>Chart Widgets</BlockTitleLg>
@@ -22,14 +33,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Single Bar Chart</BlockTitle>
-                    <BlockText>A bar chart provides a way of showing data values represented as vertical bars.</BlockText>
+                    <BlockText
+                        >A bar chart provides a way of showing data values
+                        represented as vertical bars.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12 md:col-span-6">
-                                    <ActiveUsersCard/>
+                                    <ActiveUsersCard />
                                 </div>
                             </div>
                         </div>
@@ -40,14 +56,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Multiple Bar Chart</BlockTitle>
-                    <BlockText>A bar chart provides a way of showing data values represented as vertical bars.</BlockText>
+                    <BlockText
+                        >A bar chart provides a way of showing data values
+                        represented as vertical bars.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12">
-                                    <OrdersOverviewCard/>
+                                    <OrdersOverviewCard />
                                 </div>
                             </div>
                         </div>
@@ -58,14 +79,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Stacked Bar Chart</BlockTitle>
-                    <BlockText>A bar chart provides a way of comparison of multiple data with stacked view.</BlockText>
+                    <BlockText
+                        >A bar chart provides a way of comparison of multiple
+                        data with stacked view.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12 md:col-span-6">
-                                    <UserActivitiesCard/>
+                                    <UserActivitiesCard />
                                 </div>
                             </div>
                         </div>
@@ -76,14 +102,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Solid Line Chart</BlockTitle>
-                    <BlockText>A line chart is a way of plotting data points on a line.</BlockText>
+                    <BlockText
+                        >A line chart is a way of plotting data points on a
+                        line.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12">
-                                    <SalesOverviewCard/>
+                                    <SalesOverviewCard />
                                 </div>
                             </div>
                         </div>
@@ -94,14 +125,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Solid Line Chart</BlockTitle>
-                    <BlockText>A line chart is a way of plotting data points on a line.</BlockText>
+                    <BlockText
+                        >A line chart is a way of plotting data points on a
+                        line.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12">
-                                    <AudienceOverviewCard/>
+                                    <AudienceOverviewCard />
                                 </div>
                             </div>
                         </div>
@@ -112,14 +148,19 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Multiple Line Chart</BlockTitle>
-                    <BlockText>A line chart is a way of plotting data points on a line.</BlockText>
+                    <BlockText
+                        >A line chart is a way of plotting data points on a
+                        line.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12">
-                                    <TrafficChannelListCard/>
+                                    <TrafficChannelListCard />
                                 </div>
                             </div>
                         </div>
@@ -130,14 +171,20 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Donught Charts</BlockTitle>
-                    <BlockText>Dughnut charts are probably the most commonly used charts. It use to show relational proportions between data.</BlockText>
+                    <BlockText
+                        >Dughnut charts are probably the most commonly used
+                        charts. It use to show relational proportions between
+                        data.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12 md:col-span-6">
-                                    <TrafficChannelCard/>
+                                    <TrafficChannelCard />
                                 </div>
                             </div>
                         </div>
@@ -148,14 +195,20 @@ import SessionsCard from '../../dashboard/Analytics/partials/SessionsCard.vue';
             <Block>
                 <BlockHead>
                     <BlockTitle>Donught Charts with icons</BlockTitle>
-                    <BlockText>Dughnut charts are probably the most commonly used charts. It use to show relational proportions between data.</BlockText>
+                    <BlockText
+                        >Dughnut charts are probably the most commonly used
+                        charts. It use to show relational proportions between
+                        data.</BlockText
+                    >
                 </BlockHead>
                 <Card>
                     <CardBody>
-                        <div class=" rounded-md bg-white dark:bg-gray-950 border-gray-300 dark:border-gray-900">
+                        <div
+                            class="rounded-md border-gray-300 bg-white dark:border-gray-900 dark:bg-gray-950"
+                        >
                             <div class="grid grid-cols-12">
                                 <div class="col-span-12 md:col-span-6">
-                                    <SessionsCard/>
+                                    <SessionsCard />
                                 </div>
                             </div>
                         </div>
