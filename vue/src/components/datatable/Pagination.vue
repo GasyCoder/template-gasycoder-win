@@ -1,35 +1,32 @@
 <script setup>
-import {ref, watch} from 'vue'
-import PaginationButton from './PaginationButton.vue'
-import {Icon} from '@/components'
+import { ref, watch } from 'vue';
+import PaginationButton from './PaginationButton.vue';
+import { Icon } from '@/components';
 
-
-const props = defineProps({table : Object, first:Boolean, last:Boolean})
+const props = defineProps({ table: Object, first: Boolean, last: Boolean });
 
 const paginationItems = ref('');
 
 const paginationNumber = () => {
     if (props.table.getPageCount() <= 3) {
-        const pages = []
+        const pages = [];
         for (let i = 1; i <= props.table.getPageCount(); i++) {
             pages.push(i);
         }
         return pages;
-    } 
-    else if (
+    } else if (
         props.table.getPageCount() >= 2 &&
         props.table.getState().pagination.pageIndex + 1 <= 2
     ) {
-        return [1, 2, 3, "blank", props.table.getPageCount()];
-    } 
-    else if (
+        return [1, 2, 3, 'blank', props.table.getPageCount()];
+    } else if (
         props.table.getPageCount() >= 3 &&
         props.table.getState().pagination.pageIndex + 1 >=
-        props.table.getPageCount() - 1
+            props.table.getPageCount() - 1
     ) {
         return [
             1,
-            "blank",
+            'blank',
             props.table.getPageCount() - 2,
             props.table.getPageCount() - 1,
             props.table.getPageCount(),
@@ -41,20 +38,25 @@ const paginationNumber = () => {
             props.table.getPageCount() - 1
     ) {
         return [
-            "blank",
+            'blank',
             props.table.getState().pagination.pageIndex + 1 - 1,
             props.table.getState().pagination.pageIndex + 1,
             props.table.getState().pagination.pageIndex + 1 + 1,
-            "blank",
+            'blank',
         ];
     }
 };
 
 paginationItems.value = paginationNumber();
-watch([() => props.table.getState().pagination.pageIndex, () => props.table.getState().pagination.pageSize], () => {
-    paginationItems.value = paginationNumber();
-})
-
+watch(
+    [
+        () => props.table.getState().pagination.pageIndex,
+        () => props.table.getState().pagination.pageSize,
+    ],
+    () => {
+        paginationItems.value = paginationNumber();
+    },
+);
 </script>
 <template>
     <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm">
@@ -73,19 +75,19 @@ watch([() => props.table.getState().pagination.pageIndex, () => props.table.getS
         >
             <Icon class="rtl:-scale-x-100" name="chevron-left"></Icon>
         </PaginationButton>
-            <PaginationButton
-                v-for="(number,index) in paginationItems"
-                :key="index"
-                :current="number - 1 === table.getState().pagination.pageIndex"
-                @click="table.setPageIndex(number - 1)"
-                :icon="number === 'blank'"
-                :disabled="number === 'blank'"
-            >
-                <template v-if="number !== 'blank'">
-                    {{ number }}
-                </template>
-                <Icon v-else name="more-h"></Icon>
-            </PaginationButton>
+        <PaginationButton
+            v-for="(number, index) in paginationItems"
+            :key="index"
+            :current="number - 1 === table.getState().pagination.pageIndex"
+            @click="table.setPageIndex(number - 1)"
+            :icon="number === 'blank'"
+            :disabled="number === 'blank'"
+        >
+            <template v-if="number !== 'blank'">
+                {{ number }}
+            </template>
+            <Icon v-else name="more-h"></Icon>
+        </PaginationButton>
         <PaginationButton
             icon
             @click="table.nextPage()"
