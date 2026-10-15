@@ -68,9 +68,14 @@
 .tagify[readonly]:not(.tagify--mix):not(.tagify--select) .tagify__tag > div {
     padding: var(--tag-pad);
 }
-.tagify[disabled]:not(.tagify--mix):not(.tagify--select) .tagify__tag > div::before,
-.tagify[readonly]:not(.tagify--mix):not(.tagify--select) .tagify__tag > div::before {
-    animation: readonlyStyles 1s calc(-1s * (var(--readonly-striped) - 1)) paused;
+.tagify[disabled]:not(.tagify--mix):not(.tagify--select)
+    .tagify__tag
+    > div::before,
+.tagify[readonly]:not(.tagify--mix):not(.tagify--select)
+    .tagify__tag
+    > div::before {
+    animation: readonlyStyles 1s calc(-1s * (var(--readonly-striped) - 1))
+        paused;
 }
 @keyframes readonlyStyles {
     0% {
@@ -90,7 +95,7 @@
     content: none;
 }
 .tagify--loading .tagify__input::after {
-    content: "";
+    content: '';
     vertical-align: middle;
     opacity: 1;
     width: 0.7em;
@@ -102,7 +107,7 @@
     border-color: #eee #bbb #888 transparent;
     border-radius: 50%;
     animation: rotateLoader 0.4s infinite linear;
-    content: "" !important;
+    content: '' !important;
     margin: -2px 0 -2px 0.5em;
 }
 .tagify--loading .tagify__input:empty::after {
@@ -145,7 +150,9 @@
     vertical-align: top;
     min-width: var(--tag--min-width);
     max-width: var(--tag--max-width);
-    transition: 0.8s ease, 0.1s color;
+    transition:
+        0.8s ease,
+        0.1s color;
 }
 .tagify__tag > div > [contenteditable] {
     outline: 0;
@@ -157,7 +164,7 @@
     max-width: 350px;
 }
 .tagify__tag > div::before {
-    content: "";
+    content: '';
     position: absolute;
     border-radius: inherit;
     inset: 0;
@@ -178,7 +185,7 @@
 }
 .tagify__tag--loading::after {
     --loader-size: 0.4em;
-    content: "";
+    content: '';
     vertical-align: middle;
     opacity: 1;
     width: 0.7em;
@@ -223,7 +230,8 @@
     display: none;
 }
 .tagify__tag[readonly] > div::before {
-    animation: readonlyStyles 1s calc(-1s * (var(--readonly-striped) - 1)) paused;
+    animation: readonlyStyles 1s calc(-1s * (var(--readonly-striped) - 1))
+        paused;
 }
 @keyframes readonlyStyles {
     0% {
@@ -253,15 +261,17 @@
     background: none;
     width: 14px;
     height: 14px;
-    margin-inline-end: .25rem;
-    margin-inline-start: -.125rem;
+    margin-inline-end: 0.25rem;
+    margin-inline-start: -0.125rem;
     overflow: hidden;
     transition: 0.2s ease-out;
     @apply text-slate-700 dark:text-slate-200;
 }
 .tagify__tag__removeBtn::after {
-    content: "×";
-    transition: 0.3s, color 0s;
+    content: '×';
+    transition:
+        0.3s,
+        color 0s;
 }
 .tagify__tag__removeBtn:hover {
     color: #fff;
@@ -369,7 +379,7 @@
     content: none;
 }
 .tagify--select::after {
-    content: ">";
+    content: '>';
     opacity: 0.5;
     position: absolute;
     top: 50%;
@@ -382,7 +392,7 @@
     transform: translate(-150%, -50%) scaleX(1.2) rotate(90deg);
     transition: 0.2s ease-in-out;
 }
-.tagify--select[aria-expanded="true"]::after {
+.tagify--select[aria-expanded='true']::after {
     transform: translate(-150%, -50%) rotate(270deg) scaleY(1.2);
 }
 .tagify--select .tagify__tag {
@@ -420,19 +430,19 @@
     transform: translateY(1px);
     overflow: hidden;
 }
-.tagify__dropdown[placement="top"] {
+.tagify__dropdown[placement='top'] {
     margin-top: 0;
     transform: translateY(-100%);
 }
-.tagify__dropdown[placement="top"] .tagify__dropdown__wrapper {
+.tagify__dropdown[placement='top'] .tagify__dropdown__wrapper {
     border-top-width: 1.1px;
     border-bottom-width: 0;
 }
-.tagify__dropdown[position="text"] {
+.tagify__dropdown[position='text'] {
     box-shadow: 0 0 0 3px rgba(var(--tagify-dd-color-primary), 0.1);
     font-size: 0.9em;
 }
-.tagify__dropdown[position="text"] .tagify__dropdown__wrapper {
+.tagify__dropdown[position='text'] .tagify__dropdown__wrapper {
     border-width: 1px;
 }
 .tagify__dropdown__wrapper {
@@ -465,7 +475,7 @@
     max-height: 20px;
     transform: translateY(-1em);
 }
-.tagify__dropdown--initial[placement="top"] .tagify__dropdown__wrapper {
+.tagify__dropdown--initial[placement='top'] .tagify__dropdown__wrapper {
     transform: translateY(2em);
 }
 .tagify__dropdown__item {
