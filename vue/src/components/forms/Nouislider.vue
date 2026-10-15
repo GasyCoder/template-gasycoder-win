@@ -12,34 +12,38 @@ const props = defineProps({
     maxDistance: Number,
     step: Number,
     orientation: String,
-    tooltip: Boolean
+    tooltip: Boolean,
 });
 
-    let startValue = props.start
-        startValue = /\s/g.test(startValue) ? startValue.split(' ') : startValue;
-        startValue = startValue ? startValue : 0;
+let startValue = props.start;
+startValue = /\s/g.test(startValue) ? startValue.split(' ') : startValue;
+startValue = startValue ? startValue : 0;
 
-    let connectValue = props.connect;
-        connectValue = /\s/g.test(connectValue) ? connectValue.split(' ') : connectValue;
-        connectValue = typeof connectValue === 'undefined' ? 'lower' : connectValue;
-        connectValue = connectValue === 'true' || connectValue === 'false' ? JSON.parse(connectValue) : connectValue;
+let connectValue = props.connect;
+connectValue = /\s/g.test(connectValue)
+    ? connectValue.split(' ')
+    : connectValue;
+connectValue = typeof connectValue === 'undefined' ? 'lower' : connectValue;
+connectValue =
+    connectValue === 'true' || connectValue === 'false'
+        ? JSON.parse(connectValue)
+        : connectValue;
 
 onMounted(() => {
     noUiSlider.create(document.getElementById(props.id), {
         start: startValue,
         connect: connectValue,
         range: {
-            'min': props.min || 0,
-            'max': props.max || 100
+            min: props.min || 0,
+            max: props.max || 100,
         },
         margin: props.minDistance || null,
         limit: props.maxDistance || null,
         step: props.step || 1,
         orientation: props.orientation || 'horizontal',
-        tooltips: props.tooltip || false
+        tooltips: props.tooltip || false,
     });
-})
-        
+});
 </script>
 <template>
     <div :id="id"></div>
