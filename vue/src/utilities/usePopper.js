@@ -1,26 +1,26 @@
-import { createPopper } from '@popperjs/core'
-import { onMounted, ref, watchEffect } from 'vue'
+import { createPopper } from '@popperjs/core';
+import { onMounted, ref, watchEffect } from 'vue';
 
 export function usePopper(options) {
-  let reference = ref(null)
-  let popper = ref(null)
+    let reference = ref(null);
+    let popper = ref(null);
 
-  onMounted(() => {
-    watchEffect((onInvalidate) => {
-      if (!popper.value) return
-      if (!reference.value) return
+    onMounted(() => {
+        watchEffect((onInvalidate) => {
+            if (!popper.value) return;
+            if (!reference.value) return;
 
-      let popperEl = popper.value.el || popper.value
-      let referenceEl = reference.value.el || reference.value
+            let popperEl = popper.value.el || popper.value;
+            let referenceEl = reference.value.el || reference.value;
 
-      if (!(referenceEl instanceof HTMLElement)) return
-      if (!(popperEl instanceof HTMLElement)) return
+            if (!(referenceEl instanceof HTMLElement)) return;
+            if (!(popperEl instanceof HTMLElement)) return;
 
-      let { destroy } = createPopper(referenceEl, popperEl, options)
+            let { destroy } = createPopper(referenceEl, popperEl, options);
 
-      onInvalidate(destroy)
-    })
-  })
+            onInvalidate(destroy);
+        });
+    });
 
-  return [reference, popper]
+    return [reference, popper];
 }
