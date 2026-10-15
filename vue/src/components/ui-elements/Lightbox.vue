@@ -1,22 +1,18 @@
 <script setup>
-import { ref } from 'vue'
-import FsLightbox from "fslightbox-vue"
+import { ref } from 'vue';
+import FsLightbox from 'fslightbox-vue';
 const props = defineProps({
-    sources: String
-})
+    sources: String,
+});
 const toggler = ref(false);
 defineOptions({
-  inheritAttrs: false
-})
+    inheritAttrs: false,
+});
 </script>
 <template>
     <button v-bind="$attrs" @click="toggler = !toggler">
-		<slot></slot>
-	</button>
+        <slot></slot>
+    </button>
 
-	<FsLightbox
-		:toggler="toggler"
-		:sources="[sources]"
-	/>
-
+    <FsLightbox :toggler="toggler" :sources="[sources]" />
 </template>
